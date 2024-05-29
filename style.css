@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -10,24 +16,39 @@ header {
   align-items: center;
   background-color: #333;
   color: #fff;
-  text-align: center;
   padding: 10px;
 }
 
 nav {
-  text-align: center;
-  padding: 10px;
+  display: flex;
+  align-items: center;
 }
 
-nav a {
+nav .hamburger-menu {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav .nav-links {
+  display: flex;
+}
+
+nav .nav-links a {
   color: #fff;
   text-decoration: none;
   margin: 0 20px;
+  transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  color: #ffbf47;
 }
 
 main {
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
 .button {
@@ -37,12 +58,18 @@ main {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #444;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
 }
 
 .section {
@@ -55,14 +82,21 @@ main {
 
 .section1 {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 30px;
 }
 
 .section1 img {
-  width: 50%;
+  width: 100%;
+  max-width: 400px;
   height: auto;
   border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.section1 img:hover {
+  transform: scale(1.05);
 }
 
 .section1 h2 {
@@ -71,13 +105,19 @@ main {
 
 .catGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
   width: 100%;
 }
 
 .catGrid img {
   width: 100%;
   height: auto;
+  transition: transform 0.3s ease;
+}
+
+.catGrid img:hover {
+  transform: scale(1.05);
 }
 
 footer {
@@ -85,4 +125,27 @@ footer {
   color: #fff;
   text-align: center;
   padding: 10px;
+}
+
+@media (max-width: 768px) {
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+  }
+
+  nav .nav-links.open {
+    display: flex;
+  }
+
+  nav .hamburger-menu {
+    display: block;
+  }
+
+  .section1 {
+    flex-direction: column;
+  }
 }

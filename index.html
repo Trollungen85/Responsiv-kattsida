@@ -10,10 +10,13 @@
     <header>
       <h1>Kattsidan</h1>
       <nav>
-        <a href="#">Start</a>
-        <a href="#">Katter</a>
-        <a href="#">Om oss</a>
-        <a href="#">Kontakt</a>
+        <div class="hamburger-menu" id="hamburger-menu">☰</div>
+        <div class="nav-links" id="nav-links">
+          <a href="#">Start</a>
+          <a href="#">Katter</a>
+          <a href="#">Om oss</a>
+          <a href="#">Kontakt</a>
+        </div>
       </nav>
     </header>
     <main>
@@ -81,5 +84,13 @@
       </div>
     </main>
     <footer>&copy; 2023 Kattsidan</footer>
+    <script>
+      const hamburgerMenu = document.getElementById("hamburger-menu");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburgerMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+    </script>
   </body>
 </html>
